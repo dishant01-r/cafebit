@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="anna_ldlli — South Indian café experience in Surat." />
+  <title>anna_ldlli | South Indian Café • Surat</title>
+  <style>
+    :root{
+      --cream:#fff8e9;
+      --paper:#fffdf7;
+      --green:#155b43;
+      --green2:#0e3f30;
+      --gold:#d89b24;
+      --orange:#c85b24;
+      --red:#9d3525;
+      --ink:#24332c;
+      --shadow:0 18px 45px rgba(29,47,37,.12);
+      --radius:22px;
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;font-family:Georgia,"Times New Roman",serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+    body:before{
+      content:"";position:fixed;inset:0;pointer-events:none;opacity:.055;z-index:20;
+      background-image:radial-gradient(#734f20 0.7px,transparent .7px);background-size:7px 7px;
+    }
+    .top-strip{height:8px;background:repeating-linear-gradient(135deg,var(--green) 0 28px,var(--gold) 28px 56px,var(--red) 56px 84px)}
+    nav{
+      position:sticky;top:0;z-index:50;background:rgba(255,248,233,.94);backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(21,91,67,.12);display:flex;align-items:center;justify-content:space-between;padding:14px 5%;
+    }
+    .brand{font-size:1.55rem;font-weight:800;color:var(--green);letter-spacing:.08em}
+    .brand small{display:block;font:600 .62rem/1.1 Arial,sans-serif;color:var(--orange);letter-spacing:.22em}
+    .navlinks{display:flex;gap:24px;align-items:center}
+    .navlinks a{color:var(--green2);text-decoration:none;font:700 .92rem Arial,sans-serif}
+    .navlinks a:hover{color:var(--orange)}
+    select{border:1px solid #d8c79e;background:#fffaf0;padding:8px 10px;border-radius:10px;color:var(--green);font-weight:700}
+    .hero{min-height:86vh;display:grid;place-items:center;position:relative;padding:70px 7%;overflow:hidden}
+    .hero:after{content:"";position:absolute;inset:auto -10% -130px;height:260px;background:var(--green);border-radius:50% 50% 0 0/35% 35% 0 0}
+    .hero-content{max-width:1050px;text-align:center;position:relative;z-index:2}
+    .eyebrow{font:800 .78rem Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--orange)}
+    h1{font-size:clamp(4rem,11vw,8.5rem);line-height:.78;margin:18px 0;color:var(--green);letter-spacing:-.06em}
+    h1 span{color:var(--red)}
+    .hero p{font-size:clamp(1.05rem,2vw,1.35rem);max-width:700px;margin:25px auto;color:#56635c;line-height:1.7}
+    .cta{display:inline-flex;gap:10px;align-items:center;background:var(--green);color:#fff;text-decoration:none;padding:14px 23px;border-radius:999px;font:bold 1rem Arial,sans-serif;box-shadow:0 10px 25px rgba(21,91,67,.22)}
+    .cta:hover{transform:translateY(-2px);background:var(--green2)}
+    .hero-art{position:absolute;inset:0;pointer-events:none}
+    .sun{position:absolute;width:150px;height:150px;border-radius:50%;background:#e8b13a;right:9%;top:12%;opacity:.28}
+    .leaf{position:absolute;font-size:4rem;opacity:.18;animation:sway 4s ease-in-out infinite}
+    .leaf.one{left:7%;top:22%}.leaf.two{right:14%;bottom:25%;animation-delay:1s}.leaf.three{left:18%;bottom:18%;animation-delay:2s}
+    @keyframes sway{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(8deg) translateY(-12px)}}
+
+    section{padding:90px 7%;position:relative}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 45px}
+    .section-head h2{font-size:clamp(2.3rem,5vw,4rem);color:var(--green);margin:8px 0 14px}
+    .section-head p{font-size:1.05rem;line-height:1.8;color:#657069}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;max-width:1100px;margin:auto;align-items:stretch}
+    .card{background:var(--paper);border:1px solid rgba(21,91,67,.1);border-radius:var(--radius);box-shadow:var(--shadow);padding:34px}
+    .card h3{color:var(--green);font-size:1.8rem;margin-top:0}
+    .card p{line-height:1.85;color:#59665f}
+    .banana{min-height:320px;display:grid;place-items:center;background:linear-gradient(145deg,#fff2c9,#f6d889);overflow:hidden;position:relative}
+    .banana:before{content:"";position:absolute;width:240px;height:120px;border:20px solid #cfa33a;border-top-color:transparent;border-right-color:transparent;border-radius:50%;transform:rotate(18deg)}
+    .banana .plate{width:170px;height:90px;border-radius:50%;background:#fffdf6;border:5px solid var(--green);position:relative;z-index:1;box-shadow:0 10px 20px #6e542333}
+    .banana .food{position:absolute;width:90px;height:55px;background:#d68c2a;border-radius:50%;z-index:2;box-shadow:25px -8px 0 #e1a03d,-25px 4px 0 #c87722}
+
+    .menu-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .menu-item{background:var(--paper);border-radius:18px;padding:24px;border:1px solid #e9dfc6;transition:.25s}
+    .menu-item:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .dish-icon{font-size:2.6rem}.menu-item h3{margin:10px 0 5px;color:var(--green);font-size:1.35rem}.menu-item p{margin:0;color:#71766f;line-height:1.5;font-family:Arial,sans-serif;font-size:.9rem}
+    .price{display:block;color:var(--red);font:bold 1rem Arial,sans-serif;margin-top:13px}
+    .tag{display:inline-block;background:#edf4ed;color:var(--green);padding:5px 9px;border-radius:999px;font:700 .7rem Arial,sans-serif;margin-top:10px}
+
+    .pattern{height:28px;background:
+      radial-gradient(circle at 14px 14px,var(--gold) 0 5px,transparent 5.5px) 0 0/28px 28px,
+      linear-gradient(90deg,transparent 48%,var(--red) 49% 51%,transparent 52%);
+      opacity:.65;margin-top:10px
+    }
+    .contact{background:var(--green);color:white}
+    .contact .section-head h2{color:#fff}.contact .section-head p{color:#dce9e1}
+    .contact-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .contact-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:25px;border-radius:18px;text-align:center}
+    .contact-card strong{display:block;color:#f3ca64;font:800 1rem Arial,sans-serif;margin-bottom:8px}
+    .contact-card span{line-height:1.6}
+    footer{background:#0b3024;color:#d7e2dc;text-align:center;padding:28px;font: .85rem Arial,sans-serif}
+    .masala{position:absolute;font-size:2rem;opacity:.2;animation:float 7s ease-in-out infinite}
+    .masala.a{left:3%;top:15%}.masala.b{right:4%;top:40%;animation-delay:2s}
+    @keyframes float{50%{transform:translateY(-25px) rotate(20deg)}}
+
+    @media(max-width:800px){
+      .navlinks{gap:10px}.navlinks a{font-size:.75rem}.brand{font-size:1.15rem}
+      .about-grid,.contact-grid{grid-template-columns:1fr}.menu-grid{grid-template-columns:1fr 1fr}
+      section{padding:70px 5%}
+    }
+    @media(max-width:540px){
+      .navlinks a{display:none}.menu-grid{grid-template-columns:1fr}
+      h1{font-size:4.2rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="top-strip"></div>
+
+  <nav>
+    <div class="brand">anna_ldlli<small>SOUTH INDIAN CAFÉ • SURAT</small></div>
+    <div class="navlinks">
+      <a href="#home" data-en="Home" data-hi="होम">Home</a>
+      <a href="#about" data-en="About" data-hi="हमारे बारे में">About</a>
+      <a href="#menu" data-en="Menu" data-hi="मेन्यू">Menu</a>
+      <a href="#contact" data-en="Contact" data-hi="संपर्क">Contact</a>
+      <select id="language" aria-label="Language">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="ta">தமிழ்</option>
+      </select>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-art">
+        <div class="sun"></div>
+        <div class="leaf one">🌿</div><div class="leaf two">🌿</div><div class="leaf three">🍃</div>
+      </div>
+      <div class="hero-content">
+        <div class="eyebrow" id="eyebrow">A taste of the South, served in Surat</div>
+        <h1>anna_<span>ldlli</span></h1>
+        <p id="heroText">Crispy dosas, fluffy idlis, aromatic filter coffee and the warmth of a South Indian kitchen — made fresh, served with love.</p>
+        <a class="cta" href="#menu" id="heroBtn">Explore the Menu ↓</a>
+      </div>
+    </section>
+
+    <div class="pattern"></div>
+
+    <section id="about">
+      <div class="section-head">
+        <div class="eyebrow">Our story</div>
+        <h2 id="aboutTitle">From South India to Surat</h2>
+        <p id="aboutLead">A café inspired by temple-town breakfasts, brass filter coffee, banana-leaf meals and the joyful colors of South India.</p>
+      </div>
+      <div class="about-grid">
+        <article class="card">
+          <h3 id="aboutCardTitle">Simple food. Big comfort.</h3>
+          <p id="aboutCardText">At anna_ldlli, we celebrate classic South Indian flavors while giving them a modern café setting. Our batter is fermented with care, chutneys are prepared fresh, and every cup of filter coffee is brewed for that unmistakable aroma.</p>
+          <p><strong>📍 Surat, Gujarat</strong><br>Open daily • Breakfast to evening café</p>
+        </article>
+        <div class="card banana" aria-label="Decorative South Indian food illustration">
+          <div class="plate"></div><div class="food"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="section-head">
+        <div class="eyebrow">Fresh from the kitchen</div>
+        <h2 id="menuTitle">South Indian Menu</h2>
+        <p id="menuLead">A little bit crispy, a little bit fluffy, and a whole lot of delicious.</p>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-item"><div class="dish-icon">🥞</div><h3>Masala Dosa</h3><p>Crispy dosa, potato masala, coconut chutney & sambar.</p><span class="price">₹120</span><span class="tag">BESTSELLER</span></article>
+        <article class="menu-item"><div class="dish-icon">🥞</div><h3>Ghee Roast Dosa</h3><p>Golden, paper-thin dosa finished with fragrant ghee.</p><span class="price">₹145</span></article>
+        <article class="menu-item"><div class="dish-icon">⚪</div><h3>Idli Sambar</h3><p>Soft steamed idlis with homestyle sambar and chutney.</p><span class="price">₹90</span></article>
+        <article class="menu-item"><div class="dish-icon">🍛</div><h3>Medu Vada</h3><p>Crispy outside, airy inside, served with sambar.</p><span class="price">₹85</span></article>
+        <article class="menu-item"><div class="dish-icon">🥣</div><h3>Ven Pongal</h3><p>Comforting rice & lentils with pepper, cumin and ghee.</p><span class="price">₹110</span></article>
+        <article class="menu-item"><div class="dish-icon">☕</div><h3>Filter Coffee</h3><p>South Indian filter coffee with a rich, roasted aroma.</p><span class="price">₹65</span><span class="tag">MUST TRY</span></article>
+        <article class="menu-item"><div class="dish-icon">🥥</div><h3>Idiyappam</h3><p>Delicate rice noodles paired with coconut-based curry.</p><span class="price">₹125</span></article>
+        <article class="menu-item"><div class="dish-icon">🍚</div><h3>Lemon Rice</h3><p>Bright, tangy rice with peanuts, curry leaves and spices.</p><span class="price">₹95</span></article>
+        <article class="menu-item"><div class="dish-icon">🍮</div><h3>Kesari Bath</h3><p>Warm semolina sweet scented with cardamom and saffron.</p><span class="price">₹75</span></article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="masala a">✦</div><div class="masala b">✿</div>
+      <div class="section-head">
+        <div class="eyebrow">Come say vanakkam</div>
+        <h2 id="contactTitle">Visit anna_ldlli</h2>
+        <p id="contactLead">Bring your friends, bring your appetite. We’ll bring the filter coffee.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card"><strong>ADDRESS</strong><span>South Indian Café<br>Surat, Gujarat, India</span></div>
+        <div class="contact-card"><strong>HOURS</strong><span>Mon–Sun<br>8:00 AM – 10:30 PM</span></div>
+        <div class="contact-card"><strong>CONTACT</strong><span>+91 98765 43210<br>hello@anna-ldlli.example</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 anna_ldlli • Made with filter coffee, coconut & a little Surat sunshine ☕🌴</footer>
+
+  <script>
+    const translations = {
+      en:{
+        eyebrow:"A taste of the South, served in Surat",
+        heroText:"Crispy dosas, fluffy idlis, aromatic filter coffee and the warmth of a South Indian kitchen — made fresh, served with love.",
+        heroBtn:"Explore the Menu ↓", aboutTitle:"From South India to Surat",
+        aboutLead:"A café inspired by temple-town breakfasts, brass filter coffee, banana-leaf meals and the joyful colors of South India.",
+        aboutCardTitle:"Simple food. Big comfort.",
+        aboutCardText:"At anna_ldlli, we celebrate classic South Indian flavors while giving them a modern café setting. Our batter is fermented with care, chutneys are prepared fresh, and every cup of filter coffee is brewed for that unmistakable aroma.",
+        menuTitle:"South Indian Menu",menuLead:"A little bit crispy, a little bit fluffy, and a whole lot of delicious.",
+        contactTitle:"Visit anna_ldlli",contactLead:"Bring your friends, bring your appetite. We’ll bring the filter coffee."
+      },
+      hi:{
+        eyebrow:"सूरत में दक्षिण भारत का स्वाद",
+        heroText:"कुरकुरा डोसा, नरम इडली, खुशबूदार फ़िल्टर कॉफी और दक्षिण भारतीय रसोई की गर्माहट — ताज़ा बनाया, प्यार से परोसा।",
+        heroBtn:"मेन्यू देखें ↓", aboutTitle:"दक्षिण भारत से सूरत तक",
+        aboutLead:"मंदिर-शहर के नाश्ते, पीतल के फ़िल्टर कॉफी कप और केले के पत्ते पर परोसे भोजन से प्रेरित कैफ़े।",
+        aboutCardTitle:"सादा खाना। भरपूर सुकून।",
+        aboutCardText:"anna_ldlli में हम पारंपरिक दक्षिण भारतीय स्वादों को आधुनिक कैफ़े माहौल में पेश करते हैं। बैटर को प्यार से फर्मेंट किया जाता है और चटनियाँ ताज़ा तैयार होती हैं।",
+        menuTitle:"दक्षिण भारतीय मेन्यू",menuLead:"थोड़ा कुरकुरा, थोड़ा नरम और बहुत स्वादिष्ट।",
+        contactTitle:"anna_ldlli आएँ",contactLead:"दोस्तों को साथ लाएँ, भूख साथ लाएँ। फ़िल्टर कॉफी हमारी तरफ़ से।"
+      },
+      ta:{
+        eyebrow:"சூரத்தில் தென்னிந்திய சுவை",
+        heroText:"மொறுமொறுப்பான தோசை, மென்மையான இட்லி, மணமிக்க ஃபில்டர் காபி — தென்னிந்திய சமையலறையின் அன்புடன்.",
+        heroBtn:"மெனுவைப் பாருங்கள் ↓", aboutTitle:"தென்னிந்தியாவிலிருந்து சூரத் வரை",
+        aboutLead:"தென்னிந்திய காலை உணவு, ஃபில்டர் காபி மற்றும் வாழை இலை உணவுகளால் ஈர்க்கப்பட்ட கஃபே.",
+        aboutCardTitle:"எளிய உணவு. நிறைந்த மகிழ்ச்சி.",
+        aboutCardText:"anna_ldlli பாரம்பரிய தென்னிந்திய சுவைகளை நவீன கஃபே சூழலில் வழங்குகிறது. மாவு கவனமாக புளிக்க வைக்கப்படுகிறது; சட்னிகள் தினமும் புதிதாக தயாரிக்கப்படுகின்றன.",
+        menuTitle:"தென்னிந்திய மெனு",menuLead:"கொஞ்சம் மொறுமொறு, கொஞ்சம் மென்மை — முழுக்க சுவை.",
+        contactTitle:"anna_ldlli வாருங்கள்",contactLead:"நண்பர்களையும் பசியையும் கொண்டு வாருங்கள். ஃபில்டர் காபி எங்களுடையது."
+      }
+    };
+    const lang = document.getElementById("language");
+    function setLanguage(code){
+      const t=translations[code]||translations.en;
+      Object.keys(t).forEach(id=>{const el=document.getElementById(id); if(el) el.textContent=t[id]});
+      document.querySelectorAll("[data-en]").forEach(el=>el.textContent=el.dataset[code]||el.dataset.en);
+      document.documentElement.lang=code==="hi"?"hi":code==="ta"?"ta":"en";
+    }
+    lang.addEventListener("change",e=>setLanguage(e.target.value));
+
+    // Small South-Indian-inspired floating spice animation.
+    const spices=["✦","✿","•","❋"];
+    setInterval(()=>{
+      const s=document.createElement("span");
+      s.textContent=spices[Math.floor(Math.random()*spices.length)];
+      s.style.cssText=`position:fixed;left:${Math.random()*100}vw;bottom:-20px;color:#c88b2c;font-size:${12+Math.random()*18}px;opacity:.35;z-index:10;pointer-events:none;transition:transform 6s linear,opacity 6s linear`;
+      document.body.appendChild(s);
+      requestAnimationFrame(()=>{s.style.transform=`translateY(-${window.innerHeight+80}px) rotate(${180+Math.random()*360}deg)`;s.style.opacity="0"});
+      setTimeout(()=>s.remove(),6100);
+    },900);
+  </script>
+</body>
+</html>
